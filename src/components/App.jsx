@@ -1,16 +1,29 @@
-export const App = () => {
+import React from 'react';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import LoginForm from './LOGIN/loginForm';
+import RegisterForm from './REGISTER/registerForm';
+import '../index.css';
+import { Suspense } from 'react';
+import Start from './START/start';
+
+const isProduction = process.env.NODE_ENV === 'production';
+const basename = isProduction ? '/task-pro' : '/';
+
+function App() {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-     Task Pro Building
-    </div>
+    <BrowserRouter basename={basename}>
+      <div>
+        <Suspense fallback={<p>Loading....</p>}>
+          <Routes>
+            <Route path="/auth/register" element={<RegisterForm />} />
+            <Route path="/auth/login" element={<LoginForm />} />
+            <Route path="/start" element={<Start />} />
+            <Route path="*" element={<Start />} />
+          </Routes>
+        </Suspense>
+      </div>
+    </BrowserRouter>
   );
-};
+}
+
+export default App;
