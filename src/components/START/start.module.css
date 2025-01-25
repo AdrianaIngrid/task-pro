@@ -1,6 +1,6 @@
 .startContainer {
   max-width: 1550px;
-  min-height: 770px;
+  height: 770px;
   background: linear-gradient(
     180deg,
     rgba(196, 196, 196, 0) 25%,
@@ -8,70 +8,104 @@
   );
   display: flex;
   flex-direction: column;
- align-items: center;
-
-  
+  align-items: center;
 }
 .startChild {
- width: 473px;
- height: 438px;
- align-items: baseline;
- display: flex;
- flex-direction: column;
-    margin:  auto;
+  width: 473px;
+  height: 438px;
+  align-items: baseline;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
   justify-items: center;
 }
 .logoImg {
-    max-width: 222px;
-    max-height: 246px;
-   margin: 0 auto;
+  max-width: 222px;
+  max-height: 246px;
+  margin: 0 auto;
 }
 .startParagraph {
-    font-family: "Poppins-Regular", sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    letter-spacing: -0.02em;
-    color:#161616;
-    text-align: center;
-    margin-bottom: 48px;
+  font-family: 'Poppins-Regular', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  color: #161616;
+  text-align: center;
+  margin-bottom: 48px;
 }
 .registerStartBtn {
-   
-    background-color: #161616;
-    border-radius: 8px;
-    color: #fff;
-    margin: 0 auto;
-    font-size: 14px;
-    font-weight: 500;
-    width: 344px;
-    height: 49px;
-    font-family: "Poppins-Regular", sans-serif;
-    letter-spacing: -0.02em;
-    line-height: 1.5;
-    margin-bottom: 14px;
-    text-decoration: none;
-    cursor: pointer;
+  background-color: #161616;
+  border-radius: 8px;
+  color: #fff;
+  margin: 0 auto;
+  font-size: 14px;
+  font-weight: 500;
+  width: 344px;
+  height: 49px;
+  font-family: 'Poppins-Regular', sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.5;
+  margin-bottom: 14px;
+  text-decoration: none;
+  cursor: pointer;
 }
 .loginStartBtn {
-   
-    background-color: transparent;
-    border-radius: 8px;
-    color:#161616;
-    margin: 0 auto;
-    font-size: 14px;
-    font-weight: 500;
-    width: 344px;
-    height: 49px;
-    font-family: "Poppins-Regular", sans-serif;
-    letter-spacing: -0.02em;
-    line-height: 21px;
-    margin-bottom: 14px;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
+  background-color: transparent;
+  border-radius: 8px;
+  color: #161616;
+  margin: 0 auto;
+  font-size: 14px;
+  font-weight: 500;
+  max-width: 344px;
+  max-height: 49px;
+  font-family: 'Poppins-Regular', sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 21px;
+  margin-bottom: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
 }
 .loginStartBtn:hover {
-    background-color: #161616;
-    color: #fff;
+  background-color: #161616;
+  color: #fff;
+}
+@media (max-width: 767px) {
+  .startContainer {
+    max-width: 768px;
+    min-height: 1024px;
+  }
+  .startParagraph {
+    max-width: 473px;
+  }
+}
+@media (max-width: 374px) {
+  .startContainer {
+    max-width: 375px;
+    min-height: 815px;
+  }
+  .startChild {
+    max-width: 335px;
+    max-height: 812px;
+    align-items: baseline;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-items: center;
+  }
+  .logoImg {
+    max-width: 166px;
+    max-height: 180px;
+  }
+  .startParagraph {
+    max-width: 335px;
+    max-height: 54px;
+  }
+  .registerStartBtn {
+    max-width: 335px;
+  }
+  .loginStartBtn {
+    max-width: 335px;
+  }
 }

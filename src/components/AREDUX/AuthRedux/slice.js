@@ -13,7 +13,7 @@ const handleRejected = (state, action) => {
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    user: {email: null,  username: null },
+    user: {email: null,  name: null },
     token: null,
     isLoggedIn: false,
     isLoading: false,
@@ -39,13 +39,13 @@ const authSlice = createSlice({
           return;
         }
       
-        const {email, username, token } = action.payload;
-        if (!email || !username || !token) {
+        const {email, name, token } = action.payload;
+        if (!email || !name || !token) {
           state.error = "Incomplete payload received.";
           state.isLoading = false;
           return;
         }
-        state.user = {email, username};
+        state.user = {email, name};
         state.token = token;
         state.isLoggedIn = true;
         state.error = null;
@@ -60,7 +60,7 @@ const authSlice = createSlice({
       .addCase(logout.fulfilled, (state) => {
         state.isLoading = false;
         state.error = null;
-        state.user = { username: null, email: null};
+        state.user = { name: null, email: null};
         state.token = null;
         state.isLoggedIn = false;
       })

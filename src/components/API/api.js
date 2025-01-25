@@ -1,10 +1,21 @@
 import axios from 'axios';
+import { store } from '../AREDUX/store';
 const api = axios.create({
   baseURL: 'http://localhost:3000/',
   timeout: 5000,
   headers: {
     'Content-Type': 'application/json',
   },
+});
+api.interceptors.request.use((config) => {
+  const state = store.getState();
+  const token = state.auth.token;
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+}, (error) => {
+  return Promise.reject(error);
 });
 
 export const setAxiosBaseURL = baseURL => {
@@ -23,16 +34,20 @@ export const setAxiosHeader = token => {
 const userApi = {
   signup: async data => {
     console.log('Sending signup request:', data);
-    const response = await api.post('/auth/register', data);
-    const { token } = response.data;
+    const response = await api.post('/account/register', data);
+    if (response.status !== 201 || !response.data.data) {
+      
+      throw new Error('Registration failed');
+    }
+    const { token } = response.data.data;
     setAxiosHeader(token);
 
-    return response;
+    return response.data;
   },
 
   login: async data => {
     try {
-      const response = await api.post('/auth/login', data);
+      const response = await api.post('/account/login', data);
 
       console.log('Full response from API:', response.data);
 
@@ -42,9 +57,9 @@ const userApi = {
       }
 
       if (response.data && response.data.data) {
-        const { email, username, token } = response.data.data;
+        const { email, name, token } = response.data.data;
         setAxiosHeader(token);
-        return { email, username, token };
+        return { email, name, token };
       }
 
       console.error('Invalid response structure:', response);
@@ -65,7 +80,7 @@ const userApi = {
       const token = authHeader ? authHeader.split(' ')[1] : null;
 
       const response = await api.post(
-        '/auth/logout',
+        '/account/logout',
         {},
         {
           headers: {
@@ -85,7 +100,7 @@ const userApi = {
   },
   currentUser: async () => {
     try {
-      const response = await api.get('/auth/current');
+      const response = await api.get('/account/current');
       return response.data;
     } catch (error) {
       console.error('Fetching current user failed:', error);

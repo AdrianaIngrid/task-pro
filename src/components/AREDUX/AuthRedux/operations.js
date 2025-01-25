@@ -3,7 +3,7 @@ import { userApi } from "../../API/api";
 
 // *Register user
 export const register = createAsyncThunk(
-  "/auth/register",
+  "/account/register",
   async (user, thunkApi) => {
     try {
       console.log("Sending user data:", user);
@@ -19,7 +19,7 @@ export const register = createAsyncThunk(
 
 // *Login user
 export const login = createAsyncThunk(
-  "/auth/login",
+  "/account/login",
   async (user, thunkApi) => {
     try {
       console.log("Data sent to API:", user); 
@@ -40,7 +40,7 @@ export const login = createAsyncThunk(
 
 // *Logout user
 export const logout = createAsyncThunk(
-  "/auth/logout",
+  "/account/logout",
   async (_, thunkApi) => {
     try {
       await userApi.logout();

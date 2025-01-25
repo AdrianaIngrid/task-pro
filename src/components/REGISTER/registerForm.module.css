@@ -1,79 +1,115 @@
 .registerFormContainer {
-    max-width: 1550px;
-    min-height: 770px;
-    background: linear-gradient(
-      180deg,
-      rgba(196, 196, 196, 0) 25%,
-      #bedbb0 92.19%
-    );
-    display: flex;
-    flex-direction: column;
-   align-items: center;
-   justify-content: center;
-}  
+  max-width: 1550px;
+  width: 100%;
+  min-height: 770px;
+  background: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 25%,
+    #bedbb0 92.19%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .registerTop {
   display: flex;
   flex-direction: row;
   gap: 14px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .loginRegisterPgBtn {
-  color: #FFFFFF4D;
+  color: #ffffff4d;
   font-size: 18px;
   line-height: 27px;
   letter-spacing: -0.02em;
-
-height: 27px;
-margin: 40px;
-background-color: transparent;
-border: none;
-cursor: pointer;
+  font-weight: 500;
+  height: 27px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 .registrationWord {
-  color: #FFFFFF;
+  color: #ffffff;
   margin-top: 40px;
   font-weight: 500;
   font-size: 18px;
   line-height: 27px;
   letter-spacing: -0.02em;
-
 }
 .registerFormChild {
- max-width: 424px;
- min-height: 395px;
+  max-width: 424px;
+
+  min-height: 395px;
   align-items: baseline;
   display: flex;
   flex-direction: column;
-    padding: 0 40px 0 40px;
-   justify-items: center;
-   background-color: #151515;
-   border-radius: 8px;
-   gap: 14px;
+
+  padding: 0 40px 0 40px;
+
+  justify-items: center;
+  background-color: #151515;
+  border-radius: 8px;
+  gap: 14px;
 }
 .labelForm {
   display: none;
 }
 .registerField {
   height: 49px;
-  border: 1px solid #BEDBB0;
+  border: 1px solid #bedbb0;
   width: 344px;
+
   border-radius: 8px;
   background-color: transparent;
   box-shadow: 0px 4px 16px 0px #16161614;
 
-  
-
+  padding: 0;
 }
 .registerField::placeholder {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .registerBtnPgRegister {
   height: 49px;
-  border: 1px solid #BEDBB0;
+  border: 1px solid #bedbb0;
   width: 344px;
   border-radius: 8px;
-  background-color: #BEDBB0;
+  background-color: #bedbb0;
   box-shadow: 0px 4px 16px 0px #16161614;
   margin-bottom: 40px;
   cursor: pointer;
+}
+.error {
+  color: palevioletred;
+}
+
+@media (max-width: 374px) {
+  .registerFormContainer {
+    max-width: 375px;
+    min-height: 812px;
+    padding: 0 20px;
+  }
+  .registerFormChild {
+    max-width: 305px;
+    min-height: 363px;
+    padding: 0 20px 0 20px;
+   
+  }
+  .registerField {
+    width: 287px;
+  }
+  .registerBtnPgRegister {
+    width: 287px;
+  }
+
+  .registrationWord {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  .loginRegisterPgBtn {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
 }
